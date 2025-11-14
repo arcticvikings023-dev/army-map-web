@@ -1,17 +1,17 @@
 {
   "territories": {
-    "US": {"team": "neutral", "type":"Freeland", "owner":"red team", "points":50},
-    "CA": {"team": "neutral", "type":"Freeland", "owner":"blue team", "points":40},
-    "BR": {"team": "neutral", "type":"Freeland", "owner":"None", "points":45},
-    "AR": {"team": "neutral", "type":"Freeland", "owner":"None", "points":30},
-    "MX": {"team": "neutral", "type":"Freeland", "owner":"None", "points":35},
-    "FR": {"team": "neutral", "type":"Freeland", "owner":"None", "points":40},
-    "DE": {"team": "neutral", "type":"Freeland", "owner":"None", "points":40},
-    "GB": {"team": "neutral", "type":"Freeland", "owner":"None", "points":38},
-    "IN": {"team": "neutral", "type":"Freeland", "owner":"None", "points":45},
-    "CN": {"team": "neutral", "type":"Freeland", "owner":"None", "points":50},
-    "AU": {"team": "neutral", "type":"Freeland", "owner":"None", "points":35},
-    "ZA": {"team": "neutral", "type":"Freeland", "owner":"None", "points":30}
+    "US": {"team": "red", "type":"Freeland", "owner":"blue team", "points":50},
+    "CA": {"team": "blue", "type":"Freeland", "owner":"red team", "points":50},
+    "BR": {"team": "neutral", "type":"Freeland", "owner":"None", "points":0},
+    "AR": {"team": "neutral", "type":"Freeland", "owner":"None", "points":0},
+    "MX": {"team": "neutral", "type":"Freeland", "owner":"None", "points":0},
+    "FR": {"team": "neutral", "type":"Freeland", "owner":"None", "points":0},
+    "DE": {"team": "neutral", "type":"Freeland", "owner":"None", "points":0},
+    "GB": {"team": "neutral", "type":"Freeland", "owner":"None", "points":0},
+    "IN": {"team": "neutral", "type":"Freeland", "owner":"None", "points":0},
+    "CN": {"team": "neutral", "type":"Freeland", "owner":"None", "points":0},
+    "AU": {"team": "neutral", "type":"Freeland", "owner":"None", "points":0},
+    "ZA": {"team": "neutral", "type":"Freeland", "owner":"None", "points":0}
   },
   "teams": {
     "red": {"points":50},
