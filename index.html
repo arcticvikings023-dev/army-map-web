@@ -1,111 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <title>Interactive World Army Map</title>
-  <style>
-    body {
-      font-family: Arial, sans‑serif;
-      margin: 0;
-      padding: 0;
-      text-align:center;
-    }
-    #mapContainer {
-      position: relative;
-      width: 1000px;
-      max-width: 90%;
-      margin: 20px auto;
-      border: 2px solid #000;
-    }
-    svg {
-      width: 100%;
-      height: auto;
-    }
-    .territory-path {
-      cursor: pointer;
-      stroke: #000;
-      stroke‑width: 0.5;
-      transition: fill 0.2s, transform 0.2s;
-    }
-    .territory-path:hover {
-      transform: scale(1.03);
-      stroke‑width: 1;
-    }
-    .tooltip {
-      position: absolute;
-      background: rgba(0,0,0,0.8);
-      color: #fff;
-      padding: 6px 10px;
-      border-radius: 4px;
-      pointer‑events: none;
-      opacity: 0;
-      transition: opacity 0.15s;
-      font-size: 14px;
-      white-space: pre-line;
-      z-index: 1000;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Interactive Army Map - 30% Sample</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 20px; background: #f4f4f4; }
+  #mapContainer { position: relative; width: 90%; max-width: 1200px; margin: auto; border: 1px solid #333; background: white; }
+  svg { width: 100%; height: auto; }
+  .territory-path { cursor: pointer; stroke: #555; stroke-width: 0.5; transition: fill 0.3s, transform 0.2s; fill: #ccc; }
+  .territory-path:hover { transform: scale(1.05); filter: drop-shadow(0 0 5px rgba(0,0,0,0.4)); }
+  .tooltip { position: absolute; background: rgba(0,0,0,0.8); color: white; padding: 8px 12px; border-radius: 6px; pointer-events: none; opacity: 0; transition: opacity 0.2s; white-space: pre-line; z-index: 10; font-size: 14px; }
+</style>
 </head>
 <body>
-  <h1>🌍 Interactive Army Map</h1>
-  <div id="mapContainer">
-    <!-- Tooltip element -->
-    <div id="tooltip" class="tooltip"></div>
+<h1>🌍 Interactive World Army Map - Sample</h1>
+<div id="mapContainer">
+  <div id="tooltip" class="tooltip"></div>
 
-    <!-- SVG world map -->
-    <svg viewBox="0 0 2000 1000" xmlns="http://www.w3.org/2000/svg">
-      <!-- Example territories as paths; each path id MUST match a key in your JSON “territories” -->
-      <path id="North Base" class="territory-path neutral" d="M200,100 L350,120 L340,200 L220,190 Z" />
-      <path id="South Base" class="territory-path neutral" d="M1500,700 L1650,720 L1640,830 L1520,820 Z" />
-      <path id="Forest" class="territory-path neutral" d="M600,400 L750,420 L740,520 L620,510 Z" />
-      <path id="Hill" class="territory-path neutral" d="M900,250 L1050,270 L1040,350 L920,340 Z" />
-      <path id="River" class="territory-path neutral" d="M800,500 L950,520 L940,620 L820,610 Z" />
-      <path id="Mountain Pass" class="territory-path neutral" d="M1200,150 L1350,170 L1340,250 L1220,240 Z" />
-      <path id="East Village" class="territory-path neutral" d="M1350,350 L1500,370 L1490,460 L1370,450 Z" />
-      <path id="West Outpost" class="territory-path neutral" d="M300,600 L450,620 L440,720 L320,710 Z" />
-      <!-- … add more paths for other territories … -->
-    </svg>
-  </div>
+  <!-- Partial SVG map -->
+  <svg id="worldMap" viewBox="0 0 2000 1001" xmlns="http://www.w3.org/2000/svg">
+    <path id="US" class="territory-path" d="M993.1,303.4 … Z" />
+    <path id="CA" class="territory-path" d="M903.1,150.8 … Z" />
+    <path id="BR" class="territory-path" d="M1180.4,540.1 … Z" />
+    <path id="AR" class="territory-path" d="M1185.2,610.7 … Z" />
+    <path id="MX" class="territory-path" d="M950.2,380.5 … Z" />
+    <path id="FR" class="territory-path" d="M1250.3,300.2 … Z" />
+    <path id="DE" class="territory-path" d="M1270.5,280.1 … Z" />
+    <path id="GB" class="territory-path" d="M1240.8,250.0 … Z" />
+    <path id="IN" class="territory-path" d="M1340.5,380.2 … Z" />
+    <path id="CN" class="territory-path" d="M1360.1,340.3 … Z" />
+    <path id="AU" class="territory-path" d="M1650.8,700.4 … Z" />
+    <path id="ZA" class="territory-path" d="M1200.2,850.1 … Z" />
+  </svg>
+</div>
 
-  <script>
-    const tooltip = document.getElementById("tooltip");
+<script>
+const tooltip = document.getElementById("tooltip");
 
-    fetch("https://raw.githubusercontent.com/arcticvikings023-dev/army-map-web/main/army-map.json")
-      .then(res => res.json())
-      .then(data => {
-        const territories = data.territories;
+fetch("https://raw.githubusercontent.com/USERNAME/army-map-web/main/army-map.json")
+  .then(r => r.json())
+  .then(data => {
+    const territories = data.territories;
+    for(const [code, info] of Object.entries(territories)){
+      const path = document.getElementById(code);
+      if(!path) continue;
 
-        for (const [name, info] of Object.entries(territories)) {
-          const path = document.getElementById(name);
-          if (!path) continue;
+      if(info.team === "red") path.style.fill="#f44336";
+      else if(info.team === "blue") path.style.fill="#2196F3";
+      else path.style.fill="#999";
 
-          // Set fill color based on team
-          if (info.team === "red") path.style.fill = "#f44336";
-          else if (info.team === "blue") path.style.fill = "#2196F3";
-          else path.style.fill = "#888";
-
-          // Create hover tooltip behavior
-          path.addEventListener("mouseenter", e => {
-            tooltip.style.opacity = 1;
-            tooltip.innerText = `Territory: ${name}\nType: ${info.type}\nOwner: ${info.owner}\nPoints: ${info.points}`;
-          });
-          path.addEventListener("mousemove", e => {
-            tooltip.style.left = (e.pageX + 10) + "px";
-            tooltip.style.top = (e.pageY + 10) + "px";
-          });
-          path.addEventListener("mouseleave", e => {
-            tooltip.style.opacity = 0;
-          });
-
-          // Optional: click behaviour
-          path.addEventListener("click", e => {
-            alert(`Clicked on ${name}!\nOwner: ${info.owner}\nType: ${info.type}`);
-          });
-        }
-      })
-      .catch(err => {
-        console.error("Failed to load map JSON:", err);
+      path.addEventListener("mouseenter", e=>{
+        tooltip.style.opacity=1;
+        tooltip.innerText=`Territory: ${code}\nType: ${info.type}\nOwner: ${info.owner}\nPoints: ${info.points}`;
       });
-  </script>
+      path.addEventListener("mousemove", e=>{
+        tooltip.style.left=(e.pageX+10)+"px";
+        tooltip.style.top=(e.pageY+10)+"px";
+      });
+      path.addEventListener("mouseleave", e=>{
+        tooltip.style.opacity=0;
+      });
+      path.addEventListener("click", e=>{
+        alert(`Clicked on ${code}\nOwner: ${info.owner}\nPoints: ${info.points}`);
+      });
+    }
+  })
+  .catch(console.error);
+</script>
 </body>
 </html>
