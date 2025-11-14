@@ -1,0 +1,17 @@
+{
+  "territories": {
+    "North Base": {"team":"red","type":"Base","owner":"Red Team","points":50},
+    "South Base": {"team":"blue","type":"Base","owner":"Blue Team","points":50},
+    "Forest": {"team":"neutral","type":"Freeland","owner":"None","points":10},
+    "Hill": {"team":"neutral","type":"Outpost","owner":"None","points":20},
+    "River": {"team":"neutral","type":"Freeland","owner":"None","points":15},
+    "Mountain Pass": {"team":"neutral","type":"Outpost","owner":"None","points":25},
+    "East Village": {"team":"neutral","type":"Freeland","owner":"None","points":15},
+    "West Outpost": {"team":"neutral","type":"Outpost","owner":"None","points":20}
+  },
+  "teams": {
+    "red": {"points":0},
+    "blue": {"points":0}
+  },
+  "players": {}
+}
