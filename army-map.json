@@ -1,78 +1,21 @@
 {
   "territories": {
-    "North Base": {
-      "team": "neutral",
-      "type": "Base",
-      "owner": "None",
-      "points": 50,
-      "x": 100,
-      "y": 50
-    },
-    "South Base": {
-      "team": "neutral",
-      "type": "Base",
-      "owner": "None",
-      "points": 50,
-      "x": 650,
-      "y": 300
-    },
-    "Forest": {
-      "team": "neutral",
-      "type": "Freeland",
-      "owner": "None",
-      "points": 10,
-      "x": 250,
-      "y": 150
-    },
-    "Hill": {
-      "team": "neutral",
-      "type": "Outpost",
-      "owner": "None",
-      "points": 20,
-      "x": 400,
-      "y": 100
-    },
-    "River": {
-      "team": "neutral",
-      "type": "Freeland",
-      "owner": "None",
-      "points": 15,
-      "x": 350,
-      "y": 250
-    },
-    "Mountain Pass": {
-      "team": "neutral",
-      "type": "Outpost",
-      "owner": "None",
-      "points": 25,
-      "x": 500,
-      "y": 50
-    },
-    "East Village": {
-      "team": "neutral",
-      "type": "Freeland",
-      "owner": "None",
-      "points": 15,
-      "x": 600,
-      "y": 150
-    },
-    "West Outpost": {
-      "team": "neutral",
-      "type": "Outpost",
-      "owner": "None",
-      "points": 20,
-      "x": 150,
-      "y": 300
-    }
+    "US": {"team": "neutral", "type":"Freeland", "owner":"red", "points":50},
+    "CA": {"team": "neutral", "type":"Freeland", "owner":"blue", "points":40},
+    "BR": {"team": "neutral", "type":"Freeland", "owner":"None", "points":45},
+    "AR": {"team": "neutral", "type":"Freeland", "owner":"None", "points":30},
+    "MX": {"team": "neutral", "type":"Freeland", "owner":"None", "points":35},
+    "FR": {"team": "neutral", "type":"Freeland", "owner":"None", "points":40},
+    "DE": {"team": "neutral", "type":"Freeland", "owner":"None", "points":40},
+    "GB": {"team": "neutral", "type":"Freeland", "owner":"None", "points":38},
+    "IN": {"team": "neutral", "type":"Freeland", "owner":"None", "points":45},
+    "CN": {"team": "neutral", "type":"Freeland", "owner":"None", "points":50},
+    "AU": {"team": "neutral", "type":"Freeland", "owner":"None", "points":35},
+    "ZA": {"team": "neutral", "type":"Freeland", "owner":"None", "points":30}
   },
   "teams": {
-    "red": {
-      "points": 0
-    },
-    "blue": {
-      "points": 0
-    }
+    "red": {"points":0},
+    "blue": {"points":0}
   },
   "players": {}
 }
-
